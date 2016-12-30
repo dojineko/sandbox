@@ -1,0 +1,32 @@
+[core]
+    autocrlf = input
+    safecrlf = true
+    excludesfile = ~/.gitignore_global
+[color]
+    ui = auto
+[push]
+    default = matching
+[alias]
+    co = checkout
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+    cam = commit --amend -m
+    s = status
+    d = diff
+    dc = diff --cached
+    a = add
+    pl = pull
+    ps = push
+    f = fetch
+    b = branch
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+[interactive]
+    diffFilter = diff-highlight
+[diff]
+    compactionHeuristic = true
+[ghq]
+    root = ~/works/src

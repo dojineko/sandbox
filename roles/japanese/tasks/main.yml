@@ -1,0 +1,22 @@
+- name: Configure
+  copy:
+    src: '{{ item }}'
+    dest: '/etc/{{ item }}'
+    mode: 0644
+    owner: root
+    group: root
+  with_items:
+    - locale.conf
+    - locale.gen
+
+- name: Execute locale-gen
+  shell: 'locale-gen'
+  changed_when: False
+
+- name: Set keymap
+  shell: 'localectl set-keymap jp106'
+  changed_when: False
+
+- name: Set timezone
+  shell: 'timedatectl set-timezone Asia/Tokyo'
+  changed_when: False

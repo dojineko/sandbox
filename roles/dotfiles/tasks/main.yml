@@ -1,0 +1,24 @@
+- name: Configure
+  copy:
+    src: '{{ item }}'
+    dest: '/home/vagrant/{{ item }}'
+    owner: vagrant
+    group: vagrant
+    mode: 0644
+  with_items:
+    - .zshrc
+    - .gitconfig
+    - .gitignore_global
+
+- name: Create ~/.ssh
+  file:
+    path: /home/vagrant/.ssh
+    state: directory
+    owner: vagrant
+    group: vagrant
+    mode: 0700
+
+- name: Change default shell
+  user:
+    name: vagrant
+    shell: /usr/bin/zsh

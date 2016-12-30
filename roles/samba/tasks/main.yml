@@ -1,0 +1,24 @@
+- name: Install
+  pacman:
+    name: samba
+    state: present
+
+- name: Configure
+  copy:
+    src: '{{ item }}'
+    dest: '/etc/samba/{{ item }}'
+    mode: 0644
+    owner: root
+    group: root
+  with_items:
+    - smb.conf
+  notify: Restart
+
+- name: Setup
+  systemd:
+    name: '{{ item }}'
+    state: started
+    enabled: yes
+  with_items:
+    - smbd
+    - nmbd
