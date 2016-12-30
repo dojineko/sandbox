@@ -53,6 +53,9 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
+# disable auto_cd
+unsetopt AUTO_CD
+
 # PS1 NL
 PS1="$PS1
 %(!.#.$) "
