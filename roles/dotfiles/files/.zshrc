@@ -13,7 +13,6 @@ alias sudo='sudo -E'
 alias grep='grep --color'
 alias ls='ls --color=auto --show-control-chars'
 alias ll='ls -l'
-which hub >/dev/null 2>/dev/null && alias git=hub
 
 # PS1 (Redhat Style)
 PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
@@ -77,6 +76,9 @@ bindkey '^xi' anyframe-widget-insert-git-branch
 bindkey '^x^i' anyframe-widget-insert-git-branch
 bindkey '^xf' anyframe-widget-insert-filename
 bindkey '^x^f' anyframe-widget-insert-filename
+
+# hub
+which hub >/dev/null 2>/dev/null && alias git=hub
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
