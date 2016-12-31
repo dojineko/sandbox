@@ -52,6 +52,12 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
+# enable ctrl + z
+setopt monitor
+
+# treat as comment after sharp
+setopt interactive_comments
+
 # disable auto_cd
 unsetopt AUTO_CD
 
